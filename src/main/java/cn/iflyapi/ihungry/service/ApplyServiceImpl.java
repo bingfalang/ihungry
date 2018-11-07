@@ -26,8 +26,9 @@ public class ApplyServiceImpl implements ApplyService {
             Connection connection = DBUtils.connect();
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             ResultSet resultSet = preparedStatement.executeQuery();
-            int size = resultSet.getInt(1);
-            return size;
+            if(resultSet.next()) {
+                return resultSet.getInt(1);
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         }

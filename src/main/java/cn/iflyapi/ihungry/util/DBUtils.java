@@ -9,6 +9,15 @@ import java.util.Objects;
  */
 public class DBUtils {
 
+    /**
+     * 1、加载数据库驱动程序：Class.forName(驱动程序类)
+     * 2、通过用户名密码和连接地址获取数据库连接对象：DriverManager.getConnection(连接地址,用户名,密码)
+     * 3、构造查询SQL语句
+     * 4、创建Statement实例：Statement stmt = conn.createStatement()
+     * 5、执行查询SQL语句，并返回结果：ResultSet rs = stmt.executeQuery(sql)
+     * 6、处理结果
+     * 7、关闭连接：rs.close()、stmt.close()、conn.close()
+     */
 
     private static String dbname = "ihungry";
 
@@ -16,7 +25,7 @@ public class DBUtils {
 
     private static String password = "123456";
 
-    private static String url = "jdbc:mysql://127.0.0.1:3306/" + dbname + "?user=" + username + "&password=" + password + "&useSSL=false";
+    private static String url = "jdbc:mysql://localhost:3306/" + dbname + "?user=" + username + "&password=" + password + "&useSSL=false&useUnicode=true&characterEncoding=utf8";
 
     public static Connection connect(){
         Connection connection = null;

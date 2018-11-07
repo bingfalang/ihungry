@@ -6,14 +6,40 @@
          version="3.0">
 
     <display-name>Archetype Created Web Application</display-name>
+
+    <filter>
+        <filter-name>charsetEncodingFilter</filter-name>
+        <filter-class>cn.iflyapi.ihungry.filter.CharsetEncodingFilter</filter-class>
+        <init-param>
+            <param-name>CharsetEncoding</param-name>
+            <param-value>UTF-8</param-value>
+        </init-param>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>charsetEncodingFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+
     <servlet>
-        <servlet-name>HelloWorld</servlet-name>
+        <servlet-name>Apply</servlet-name>
         <servlet-class>cn.iflyapi.ihungry.controller.ApplyServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>HelloWorld</servlet-name>
+        <servlet-name>Apply</servlet-name>
         <url-pattern>/apply</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Test</servlet-name>
+        <servlet-class>cn.iflyapi.ihungry.controller.TestServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Test</servlet-name>
+        <url-pattern>/test</url-pattern>
     </servlet-mapping>
 
     <servlet>
