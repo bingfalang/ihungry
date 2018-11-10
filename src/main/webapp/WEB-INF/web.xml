@@ -34,7 +34,7 @@
 
     <servlet>
         <servlet-name>Test</servlet-name>
-        <servlet-class>cn.iflyapi.ihungry.controller.TestServlet</servlet-class>
+        <servlet-class>cn.iflyapi.ihungry.controller.DispatcherServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
