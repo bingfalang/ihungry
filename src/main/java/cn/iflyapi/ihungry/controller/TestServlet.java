@@ -22,6 +22,7 @@ public class TestServlet extends HttpServlet {
 
     @Override
     public void init() throws ServletException {
+        System.out.println("=============执行了一次============");
     }
 
     @Override
@@ -29,9 +30,9 @@ public class TestServlet extends HttpServlet {
         //设置响应内容类型
         resp.setContentType("application/json");
         resp.setCharacterEncoding("UTF-8");
-        ApplyService applyService = new ApplyServiceImpl();
         PrintWriter out = resp.getWriter();
-        out.println(JSON.toJSONString(JSONResult.success(applyService.countTodayApply())));
+        System.out.println(req.getMethod());
+        out.println(JSON.toJSONString(JSONResult.success()));
     }
 
 

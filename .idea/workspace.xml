@@ -8,39 +8,16 @@
   <component name="ChangeListManager">
     <list default="true" id="d112fb66-7efc-45eb-bd12-1e440a56471b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/iflyapi/ihungry/HttpClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/iflyapi/ihungry/HttpClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/iflyapi/ihungry/service/ApplyServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/iflyapi/ihungry/service/ApplyServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/iflyapi/ihungry/task/NoticeBeginManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/iflyapi/ihungry/task/NoticeBeginManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/iflyapi/ihungry/task/NoticeBeginTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/iflyapi/ihungry/task/NoticeBeginTask.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/iflyapi/ihungry/task/NoticeEndManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/iflyapi/ihungry/task/NoticeEndManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/iflyapi/ihungry/util/Constant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/iflyapi/ihungry/util/Constant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/iflyapi/ihungry/util/DBUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/iflyapi/ihungry/util/DBUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/init.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/init.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/cn/iflyapi/ihungry/HttpClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cn/iflyapi/ihungry/HttpClient.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/cn/iflyapi/ihungry/controller/UserServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cn/iflyapi/ihungry/controller/UserServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/cn/iflyapi/ihungry/service/ApplyServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cn/iflyapi/ihungry/service/ApplyServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/cn/iflyapi/ihungry/task/NoticeBeginManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cn/iflyapi/ihungry/task/NoticeBeginManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/iflyapi/ihungry/controller/TestServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/iflyapi/ihungry/controller/TestServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/iflyapi/ihungry/controller/ApplyServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cn/iflyapi/ihungry/controller/ApplyServlet.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/cn/iflyapi/ihungry/task/NoticeBeginTask.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cn/iflyapi/ihungry/task/NoticeBeginTask.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/cn/iflyapi/ihungry/task/NoticeEndManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cn/iflyapi/ihungry/task/NoticeEndManager.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/cn/iflyapi/ihungry/task/NoticeEndTask.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cn/iflyapi/ihungry/task/NoticeEndTask.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/cn/iflyapi/ihungry/util/Constant.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cn/iflyapi/ihungry/util/Constant.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/cn/iflyapi/ihungry/util/DBUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cn/iflyapi/ihungry/util/DBUtils.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/ihungry.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/ihungry.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/ihungry/META-INF/MANIFEST.MF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/ihungry/WEB-INF/classes/cn/iflyapi/ihungry/HttpClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ihungry/WEB-INF/classes/cn/iflyapi/ihungry/HttpClient.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/ihungry/WEB-INF/classes/cn/iflyapi/ihungry/controller/UserServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ihungry/WEB-INF/classes/cn/iflyapi/ihungry/controller/UserServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/ihungry/WEB-INF/classes/cn/iflyapi/ihungry/service/ApplyServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ihungry/WEB-INF/classes/cn/iflyapi/ihungry/service/ApplyServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/ihungry/WEB-INF/classes/cn/iflyapi/ihungry/task/NoticeBeginManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ihungry/WEB-INF/classes/cn/iflyapi/ihungry/task/NoticeBeginManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ihungry/WEB-INF/classes/cn/iflyapi/ihungry/controller/ApplyServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ihungry/WEB-INF/classes/cn/iflyapi/ihungry/controller/ApplyServlet.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/ihungry/WEB-INF/classes/cn/iflyapi/ihungry/task/NoticeBeginTask.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ihungry/WEB-INF/classes/cn/iflyapi/ihungry/task/NoticeBeginTask.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/ihungry/WEB-INF/classes/cn/iflyapi/ihungry/task/NoticeEndManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ihungry/WEB-INF/classes/cn/iflyapi/ihungry/task/NoticeEndManager.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/ihungry/WEB-INF/classes/cn/iflyapi/ihungry/task/NoticeEndTask.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ihungry/WEB-INF/classes/cn/iflyapi/ihungry/task/NoticeEndTask.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/ihungry/WEB-INF/classes/cn/iflyapi/ihungry/util/Constant.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ihungry/WEB-INF/classes/cn/iflyapi/ihungry/util/Constant.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/ihungry/WEB-INF/classes/cn/iflyapi/ihungry/util/DBUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ihungry/WEB-INF/classes/cn/iflyapi/ihungry/util/DBUtils.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/ihungry/WEB-INF/views/init.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/ihungry/WEB-INF/views/init.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/ihungry/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/ihungry/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/ihungry/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/ihungry/index.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -54,12 +31,12 @@
     <session id="-1878949141">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="8" />
+          <entry key="project.closed" value="9" />
           <entry key="project.open.time.1" value="4" />
           <entry key="project.open.time.3" value="1" />
           <entry key="project.open.time.7" value="2" />
-          <entry key="project.open.time.9" value="2" />
-          <entry key="project.opened" value="9" />
+          <entry key="project.open.time.9" value="3" />
+          <entry key="project.opened" value="10" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -67,10 +44,10 @@
           <entry key="class" value="3" />
           <entry key="css" value="1" />
           <entry key="html" value="10" />
-          <entry key="java" value="91" />
+          <entry key="java" value="118" />
           <entry key="jsp" value="4" />
           <entry key="pom" value="1" />
-          <entry key="xml" value="6" />
+          <entry key="xml" value="7" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
@@ -78,16 +55,16 @@
           <entry key="CLASS" value="3" />
           <entry key="CSS" value="1" />
           <entry key="HTML" value="10" />
-          <entry key="JAVA" value="91" />
+          <entry key="JAVA" value="118" />
           <entry key="JSP" value="4" />
-          <entry key="XML" value="7" />
+          <entry key="XML" value="8" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="36" />
           <entry key="html" value="840" />
-          <entry key="java" value="3999" />
+          <entry key="java" value="4238" />
           <entry key="jsp" value="4" />
           <entry key="xml" value="197" />
         </counts>
@@ -95,7 +72,7 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="HTML" value="840" />
-          <entry key="JAVA" value="3999" />
+          <entry key="JAVA" value="4238" />
           <entry key="JSP" value="4" />
           <entry key="PLAIN_TEXT" value="36" />
           <entry key="XML" value="197" />
@@ -105,80 +82,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/cn/iflyapi/ihungry/task/NoticeBeginTask.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="475">
-              <caret line="25" column="66" selection-start-line="25" selection-start-column="66" selection-end-line="25" selection-end-column="66" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/cn/iflyapi/ihungry/task/NoticeEndManager.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="152">
-              <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/cn/iflyapi/ihungry/util/Constant.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
-              <caret line="11" column="89" selection-start-line="11" selection-start-column="89" selection-end-line="11" selection-end-column="89" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="779">
-              <caret line="41" column="26" selection-start-line="41" selection-start-column="26" selection-end-line="41" selection-end-column="26" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/cn/iflyapi/ihungry/service/ApplyService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="15" column="8" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/cn/iflyapi/ihungry/controller/JoinServlet.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="494">
-              <caret line="35" column="8" selection-start-line="35" selection-start-column="8" selection-end-line="35" selection-end-column="8" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/cn/iflyapi/ihungry/controller/ApplyServlet.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="418">
-              <caret line="41" column="37" selection-start-line="41" selection-start-column="20" selection-end-line="41" selection-end-column="37" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/cn/iflyapi/ihungry/service/ApplyServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="423">
-              <caret line="29" column="28" selection-start-line="29" selection-start-column="28" selection-end-line="29" selection-end-column="28" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="128">
+              <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
             </state>
           </provider>
         </entry>
@@ -187,16 +95,50 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/cn/iflyapi/ihungry/controller/TestServlet.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="399">
-              <caret line="33" selection-start-line="33" selection-end-line="33" />
+              <caret line="33" column="42" selection-start-line="33" selection-start-column="42" selection-end-line="33" selection-end-column="42" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/cn/iflyapi/ihungry/HttpClient.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/cn/iflyapi/ihungry/util/JSONResult.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1140">
-              <caret line="74" selection-start-line="74" selection-end-line="74" />
+            <state relative-caret-position="284">
+              <caret line="31" column="43" selection-start-line="31" selection-start-column="37" selection-end-line="31" selection-end-column="43" />
+              <folding>
+                <element signature="e#666#667#0" expanded="true" />
+                <element signature="e#707#708#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/cn/iflyapi/ihungry/util/Constant.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="304">
+              <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/cn/iflyapi/ihungry/service/UserServiceImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="456">
+              <caret line="24" selection-start-line="24" selection-end-line="24" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/cn/iflyapi/ihungry/controller/UserServlet.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="152">
+              <caret line="27" column="40" selection-start-line="27" selection-start-column="40" selection-end-line="27" selection-end-column="40" />
             </state>
           </provider>
         </entry>
@@ -209,6 +151,7 @@
         <option value="Interface" />
         <option value="HTML File" />
         <option value="Class" />
+        <option value="AnnotationType" />
       </list>
     </option>
   </component>
@@ -239,7 +182,6 @@
         <option value="$PROJECT_DIR$/src/main/java/cn/iflyapi/ihungry/task/NoticeDingTimerTask.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/iflyapi/ihungry/listener/NoticeDingListener.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/iflyapi/ihungry/task/NoticeEndTask.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/iflyapi/ihungry/controller/ApplyServlet.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/iflyapi/ihungry/service/ApplyService.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/iflyapi/ihungry/controller/JoinServlet.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/iflyapi/ihungry/service/UserService.java" />
@@ -253,11 +195,17 @@
         <option value="$PROJECT_DIR$/src/main/webapp/index.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/init.html" />
         <option value="$PROJECT_DIR$/src/main/java/cn/iflyapi/ihungry/util/DBUtils.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/iflyapi/ihungry/controller/TestServlet.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
         <option value="$PROJECT_DIR$/src/main/java/cn/iflyapi/ihungry/service/ApplyServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/iflyapi/ihungry/util/Constant.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/iflyapi/ihungry/task/NoticeBeginTask.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/iflyapi/ihungry/util/Constant.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/iflyapi/ihungry/annotation/Service.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/iflyapi/ihungry/annotation/Controller.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/iflyapi/ihungry/annotation/Qualifier.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/iflyapi/ihungry/controller/TestServlet.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/iflyapi/ihungry/controller/ApplyServlet.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/iflyapi/ihungry/annotation/GetMapping.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/iflyapi/ihungry/annotation/PostMapping.java" />
       </list>
     </option>
   </component>
@@ -314,10 +262,8 @@
     <option name="jreName" value="1.8" />
   </component>
   <component name="ProjectFrameBounds" fullScreen="true">
-    <option name="x" value="1440" />
-    <option name="y" value="-540" />
-    <option name="width" value="2560" />
-    <option name="height" value="1440" />
+    <option name="width" value="1440" />
+    <option name="height" value="900" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -352,7 +298,6 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -393,7 +338,7 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="ihungry" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
+              <item name="annotation" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ihungry" type="b2602c69:ProjectViewProjectNode" />
@@ -403,7 +348,6 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="ihungry" type="462c0819:PsiDirectoryNode" />
               <item name="controller" type="462c0819:PsiDirectoryNode" />
-              <item name="TestServlet" type="1a9f42e2:ClassTreeNode" />
             </path>
             <path>
               <item name="ihungry" type="b2602c69:ProjectViewProjectNode" />
@@ -421,15 +365,6 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="ihungry" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ihungry" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ihungry" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="ihungry" type="462c0819:PsiDirectoryNode" />
               <item name="task" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -437,15 +372,6 @@
               <item name="ihungry" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="ihungry" type="462c0819:PsiDirectoryNode" />
-              <item name="util" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ihungry" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ihungry" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="webapp" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -455,20 +381,12 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="webapp" type="462c0819:PsiDirectoryNode" />
               <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ihungry" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ihungry" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -483,20 +401,21 @@
     <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/main/webapp" />
-    </key>
     <key name="IntroduceConstantDialog.RECENTS_KEY">
       <recent name="cn.iflyapi.ihungry.HttpClient" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="cn.iflyapi.ihungry.controller" />
-      <recent name="cn.iflyapi.ihungry.service" />
-      <recent name="cn.iflyapi.ihungry.task" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/webapp/WEB-INF/views" />
       <recent name="$PROJECT_DIR$/src/main/webapp/WEB-INF" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="cn.iflyapi.ihungry.annotation" />
+      <recent name="cn.iflyapi.ihungry.controller" />
+      <recent name="cn.iflyapi.ihungry.service" />
+      <recent name="cn.iflyapi.ihungry.task" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/webapp" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -730,32 +649,33 @@
       <workItem from="1541553621687" duration="9051000" />
       <workItem from="1541571138342" duration="62000" />
       <workItem from="1541580652052" duration="651000" />
-      <workItem from="1541583093782" duration="2988000" />
+      <workItem from="1541583093782" duration="3243000" />
+      <workItem from="1541812644823" duration="1369000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="55812000" />
+    <option name="totallyTimeSpent" value="57436000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1440" y="-540" width="2560" height="1440" extended-state="0" />
+    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.12986498" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24177396" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info id="Web" order="4" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32891566" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32846716" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.52168673" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Application Servers" order="7" weight="0.329927" />
       <window_info anchor="bottom" id="Messages" order="8" weight="0.329927" />
-      <window_info anchor="bottom" id="Terminal" order="9" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.32891566" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Java Enterprise" order="11" />
       <window_info anchor="bottom" id="Database Changes" order="12" show_stripe_button="false" />
@@ -780,44 +700,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar:///usr/local/maven-repository/javax/servlet/javax.servlet-api/3.1.0/javax.servlet-api-3.1.0-sources.jar!/javax/servlet/annotation/WebServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="62" column="18" selection-start-line="62" selection-start-column="18" selection-end-line="62" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///usr/local/maven-repository/commons-dbutils/commons-dbutils/1.7/commons-dbutils-1.7.jar!/org/apache/commons/dbutils/QueryRunner.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1768">
-          <caret line="381" column="20" selection-start-line="381" selection-start-column="20" selection-end-line="381" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home/src.zip!/java/time/LocalDateTime.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="263">
-          <caret line="1798" column="25" selection-start-line="1798" selection-start-column="25" selection-end-line="1798" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home/src.zip!/java/sql/Connection.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="267">
-          <caret line="137" column="22" selection-start-line="137" selection-start-column="22" selection-end-line="137" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/iflyapi/ihungry/model/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="13" column="28" selection-start-line="13" selection-start-column="28" selection-end-line="13" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/index.jsp" />
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/success.html" />
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/form-validation.css" />
     <entry file="file://$PROJECT_DIR$/src/main/java/cn/iflyapi/ihungry/model/Apply.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="171">
@@ -993,16 +875,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/iflyapi/ihungry/service/UserServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="456">
-          <caret line="24" column="46" selection-start-line="24" selection-start-column="46" selection-end-line="24" selection-end-column="46" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2014">
@@ -1026,94 +898,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/cn/iflyapi/ihungry/task/NoticeEndTask.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="589">
-          <caret line="31" column="37" lean-forward="true" selection-start-line="31" selection-start-column="37" selection-end-line="31" selection-end-column="37" />
+        <state relative-caret-position="361">
+          <caret line="27" column="76" selection-start-line="27" selection-start-column="76" selection-end-line="27" selection-end-column="76" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/iflyapi/ihungry/util/DBUtils.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/iflyapi/ihungry/task/NoticeBeginTask.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="30" column="37" selection-start-line="30" selection-start-column="37" selection-end-line="30" selection-end-column="37" />
+        <state relative-caret-position="361">
+          <caret line="25" column="66" selection-start-line="25" selection-start-column="66" selection-end-line="25" selection-end-column="66" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/iflyapi/ihungry/controller/UserServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="49" selection-start-line="49" selection-end-line="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/iflyapi/ihungry/controller/JoinServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="494">
-          <caret line="35" column="8" selection-start-line="35" selection-start-column="8" selection-end-line="35" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/iflyapi/ihungry/controller/ApplyServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="41" column="37" selection-start-line="41" selection-start-column="20" selection-end-line="41" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="779">
-          <caret line="41" column="26" selection-start-line="41" selection-start-column="26" selection-end-line="41" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/iflyapi/ihungry/service/ApplyService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="15" column="8" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/iflyapi/ihungry/controller/TestServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="33" selection-start-line="33" selection-end-line="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/iflyapi/ihungry/service/ApplyServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="423">
-          <caret line="29" column="28" selection-start-line="29" selection-start-column="28" selection-end-line="29" selection-end-column="28" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/iflyapi/ihungry/util/Constant.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="11" column="89" selection-start-line="11" selection-start-column="89" selection-end-line="11" selection-end-column="89" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/iflyapi/ihungry/util/JSONResult.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="569">
-          <caret line="59" lean-forward="true" selection-start-line="59" selection-end-line="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/iflyapi/ihungry/HttpClient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1140">
-          <caret line="74" selection-start-line="74" selection-end-line="74" />
         </state>
       </provider>
     </entry>
@@ -1124,13 +923,160 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/iflyapi/ihungry/task/NoticeBeginTask.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/iflyapi/ihungry/util/DBUtils.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="475">
-          <caret line="25" column="66" selection-start-line="25" selection-start-column="66" selection-end-line="25" selection-end-column="66" />
+        <state relative-caret-position="551">
+          <caret line="30" column="37" selection-start-line="30" selection-start-column="37" selection-end-line="30" selection-end-column="37" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/iflyapi/ihungry/service/ApplyService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="17" column="11" selection-start-line="17" selection-start-column="11" selection-end-line="17" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/iflyapi/ihungry/HttpClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="29" column="20" lean-forward="true" selection-start-line="29" selection-start-column="20" selection-end-line="29" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="608">
+          <caret line="32" column="22" lean-forward="true" selection-start-line="32" selection-start-column="22" selection-end-line="32" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/iflyapi/ihungry/model/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+          <folding>
+            <element signature="e#242#243#0" expanded="true" />
+            <element signature="e#267#268#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/iflyapi/ihungry/controller/JoinServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/iflyapi/ihungry/annotation/Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="12" column="19" lean-forward="true" selection-start-line="12" selection-start-column="19" selection-end-line="12" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/iflyapi/ihungry/annotation/Service.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="12" column="30" selection-start-line="12" selection-start-column="30" selection-end-line="12" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/iflyapi/ihungry/service/ApplyServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="426">
+          <caret line="46" selection-start-line="46" selection-end-line="46" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/iflyapi/ihungry/util/JSONResult.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="284">
+          <caret line="31" column="43" selection-start-line="31" selection-start-column="37" selection-end-line="31" selection-end-column="43" />
+          <folding>
+            <element signature="e#666#667#0" expanded="true" />
+            <element signature="e#707#708#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/iflyapi/ihungry/service/UserServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="456">
+          <caret line="24" selection-start-line="24" selection-end-line="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/iflyapi/ihungry/controller/ApplyServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="128">
+          <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/iflyapi/ihungry/util/Constant.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/iflyapi/ihungry/controller/TestServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="33" column="42" selection-start-line="33" selection-start-column="42" selection-end-line="33" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///usr/local/maven-repository/javax/servlet/javax.servlet-api/3.1.0/javax.servlet-api-3.1.0-sources.jar!/javax/servlet/GenericServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-391">
+          <caret line="274" column="21" selection-start-line="274" selection-start-column="4" selection-end-line="274" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///usr/local/maven-repository/javax/servlet/javax.servlet-api/3.1.0/javax.servlet-api-3.1.0-sources.jar!/javax/servlet/http/HttpServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1422">
+          <caret line="519" column="43" selection-start-line="519" selection-start-column="43" selection-end-line="519" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/iflyapi/ihungry/annotation/Qualifier.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="13" column="1" lean-forward="true" selection-start-line="13" selection-start-column="1" selection-end-line="13" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/iflyapi/ihungry/annotation/PostMapping.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="13" column="33" selection-start-line="13" selection-start-column="33" selection-end-line="13" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/iflyapi/ihungry/annotation/GetMapping.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="13" column="32" selection-start-line="13" selection-start-column="32" selection-end-line="13" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/iflyapi/ihungry/controller/UserServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="27" column="40" selection-start-line="27" selection-start-column="40" selection-end-line="27" selection-end-column="40" />
         </state>
       </provider>
     </entry>
