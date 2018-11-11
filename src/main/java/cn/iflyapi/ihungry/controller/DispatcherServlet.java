@@ -1,8 +1,6 @@
 package cn.iflyapi.ihungry.controller;
 
-import cn.iflyapi.ihungry.annotation.Controller;
-import cn.iflyapi.ihungry.annotation.Qualifier;
-import cn.iflyapi.ihungry.annotation.Service;
+import cn.iflyapi.ihungry.annotation.*;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -11,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -28,7 +27,9 @@ public class DispatcherServlet extends HttpServlet {
 
     private List<String> clazzNames = new ArrayList<>();
 
-    private Map<String, Object> handlerMapping = new HashMap<>();
+    private Map<String, Method> handlerMapping = new HashMap<>();
+
+    private Map<Method, String> methodInstanceMap = new HashMap<>();
 
     @Override
     public void init() throws ServletException {
@@ -107,6 +108,7 @@ public class DispatcherServlet extends HttpServlet {
             if (isController) {
                 Controller controller = (Controller) clazz.getAnnotation(Controller.class);
                 instantMap.put(controller.value(), ob);
+                handlerMapping(ob, controller);
             }
         }
     }
@@ -128,6 +130,31 @@ public class DispatcherServlet extends HttpServlet {
                     field.setAccessible(true);
                     field.set(instantMap.get(key), target);
                 }
+            }
+        }
+    }
+
+    /**
+     * 请求路径映射
+     *
+     * @param o
+     * @param controller
+     */
+    private void handlerMapping(Object o, Controller controller) {
+        Method[] methods = o.getClass().getDeclaredMethods();
+        for (Method method : methods) {
+            boolean isPost = method.isAnnotationPresent(PostMapping.class);
+            boolean isGet = method.isAnnotationPresent(GetMapping.class);
+            if (isGet) {
+                GetMapping getMapping = method.getAnnotation(GetMapping.class);
+                handlerMapping.put(getMapping.method() + getMapping.value(), method);
+                methodInstanceMap.put(method, controller.value());
+            }
+
+            if (isPost) {
+                PostMapping postMapping = method.getAnnotation(PostMapping.class);
+                handlerMapping.put(postMapping.method() + postMapping.value(), method);
+                methodInstanceMap.put(method, controller.value());
             }
         }
     }
