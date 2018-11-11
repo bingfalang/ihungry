@@ -1,6 +1,7 @@
 package cn.iflyapi.ihungry.controller;
 
 import cn.iflyapi.ihungry.annotation.Controller;
+import cn.iflyapi.ihungry.annotation.Qualifier;
 import cn.iflyapi.ihungry.annotation.Service;
 
 import javax.servlet.ServletException;
@@ -9,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.File;
 import java.io.IOException;
+import java.lang.reflect.Field;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -26,12 +28,12 @@ public class DispatcherServlet extends HttpServlet {
 
     private List<String> clazzNames = new ArrayList<>();
 
-    private Map<String,Object> handlerMapping = new HashMap<>();
+    private Map<String, Object> handlerMapping = new HashMap<>();
 
     @Override
     public void init() throws ServletException {
 
-        scanPackage("cn.iflyapi.ihungry");
+/*        scanPackage("cn.iflyapi.ihungry");
         System.out.println(clazzNames.toString());
 
         try {
@@ -39,7 +41,7 @@ public class DispatcherServlet extends HttpServlet {
         } catch (ClassNotFoundException | InstantiationException |IllegalAccessException e) {
             e.printStackTrace();
         }
-        System.out.println(instantMap.size());
+        System.out.println(instantMap.size());*/
     }
 
     /**
@@ -109,8 +111,25 @@ public class DispatcherServlet extends HttpServlet {
         }
     }
 
-    private void ioc(){
+    /**
+     * 依赖注入
+     *
+     * @throws IllegalAccessException
+     */
+    private void di() throws IllegalAccessException {
 
+        for (String key : instantMap.keySet()) {
+            Field[] fields = instantMap.get(key).getClass().getDeclaredFields();
+            for (Field field : fields) {
+                if (field.isAnnotationPresent(Qualifier.class)) {
+                    Qualifier qualifier = field.getAnnotation(Qualifier.class);
+                    String instanceName = qualifier.value();
+                    Object target = instantMap.get(instanceName);
+                    field.setAccessible(true);
+                    field.set(instantMap.get(key), target);
+                }
+            }
+        }
     }
 
     @Override
