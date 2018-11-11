@@ -29,17 +29,6 @@ public class NoticeBeginManager {
             date = new Date(tt);
         }
 
-
-        String newDate = simpleDateFormat.format(date);
-        try {
-            if (!HttpClient.isWorkDay(API_HOLIDAY_DATE + newDate)) {
-                return;
-            }
-        } catch (IOException e) {
-            logger.warning("NoticeBeginManager|判断节假日失败");
-            return;
-        }
-
         Timer timer = new Timer();
         NoticeBeginTask task = new NoticeBeginTask();
         timer.schedule(task, date, PERIOD_DAY);

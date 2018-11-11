@@ -10,8 +10,13 @@ import cn.iflyapi.ihungry.util.Constant;
 import com.alibaba.fastjson.JSONObject;
 import org.apache.http.entity.ContentType;
 
+import java.io.IOException;
+import java.util.Date;
 import java.util.TimerTask;
 import java.util.logging.Logger;
+
+import static cn.iflyapi.ihungry.util.Constant.API_HOLIDAY_DATE;
+import static cn.iflyapi.ihungry.util.Constant.simpleDateFormat;
 
 
 public class NoticeBeginTask extends TimerTask {
@@ -20,6 +25,17 @@ public class NoticeBeginTask extends TimerTask {
 
     @Override
     public void run() {
+
+        String newDate = simpleDateFormat.format(new Date());
+        try {
+            if (!HttpClient.isWorkDay(API_HOLIDAY_DATE + newDate)) {
+                return;
+            }
+        } catch (IOException e) {
+            logger.warning("NoticeBeginManager|判断节假日失败");
+            return;
+        }
+
         try {
             JSONObject jsonParam = new JSONObject();
             JSONObject content = new JSONObject();
