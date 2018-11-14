@@ -10,11 +10,9 @@ import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
+import java.lang.reflect.Parameter;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * @author: qfwang
@@ -147,20 +145,90 @@ public class DispatcherServlet extends HttpServlet {
             boolean isGet = method.isAnnotationPresent(GetMapping.class);
             if (isGet) {
                 GetMapping getMapping = method.getAnnotation(GetMapping.class);
-                handlerMapping.put(getMapping.method() + getMapping.value(), method);
+                handlerMapping.put(getMapping.method() + formatUrl(getMapping.value()), method);
                 methodInstanceMap.put(method, controller.value());
             }
 
             if (isPost) {
                 PostMapping postMapping = method.getAnnotation(PostMapping.class);
-                handlerMapping.put(postMapping.method() + postMapping.value(), method);
+                handlerMapping.put(postMapping.method() + formatUrl(postMapping.value()), method);
                 methodInstanceMap.put(method, controller.value());
             }
         }
     }
 
+    private String formatUrl(String url) {
+        String realUrl;
+        if (!url.startsWith("/")) {
+            realUrl = "/" + url;
+        } else {
+            realUrl = url;
+        }
+        return realUrl.replaceAll("//", "/");
+    }
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        System.out.println(req.getRequestURI());
+        System.out.println(req.getContextPath());
+        System.out.println(req.getMethod());
+
+        Map<String, String[]> requestParamMap = req.getParameterMap();
+
+        String uri = req.getRequestURI().replaceAll(req.getContextPath(), "");
+        String url = req.getMethod() + uri;
+
+        Method method = handlerMapping.get(url);
+        if (Objects.isNull(method)) {
+            return;
+        }
+
+
+        Parameter[] parameters = method.getParameters();
+        Object[] args = new Object[parameters.length];
+        for (int i = 0; i < parameters.length; i++) {
+            String name = parameters[i].getName();
+            String[] val = requestParamMap.get(name);
+            if (Objects.isNull(val)) {
+                continue;
+            }
+
+            Class clazz = parameters[i].getType();
+            String instanceNmae = methodInstanceMap.get(method);
+            Object o = instantMap.get(instanceNmae);
+//                method.invoke(o,)
+
+            boolean isPrimitive = clazz.isPrimitive();
+            if (isPrimitive) {
+                if (clazz == int.class) {
+                    args[i] = Integer.valueOf(val[0]);
+                }
+                if (clazz == Character.class) {
+                    args[i] = val[0];
+                }
+                if (clazz == long.class) {
+                    args[i] = Long.valueOf(val[0]);
+                }
+                if (clazz == double.class) {
+                    args[i] = Double.valueOf(val[0]);
+                }
+                if (clazz == boolean.class) {
+                    args[i] = Boolean.valueOf(val[0]);
+                }
+                if (clazz == byte.class) {
+                    args[i] = Byte.valueOf(val[0]);
+                }
+                if (clazz == float.class) {
+                    args[i] = Float.valueOf(val[0]);
+                }
+                if (clazz == short.class) {
+                    args[i] = Short.valueOf(val[0]);
+                }
+
+
+            }
+        }
+
 
     }
 
