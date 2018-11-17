@@ -1,6 +1,7 @@
 package cn.iflyapi.ihungry.controller;
 
 import cn.iflyapi.ihungry.annotation.*;
+import cn.iflyapi.ihungry.databind.NumberConverter;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -198,39 +199,27 @@ public class DispatcherServlet extends HttpServlet {
             Object o = instantMap.get(instanceNmae);
 //                method.invoke(o,)
 
-            boolean isPrimitive = clazz.isPrimitive();
-            if (isPrimitive) {
-                if (clazz == int.class) {
-                    args[i] = Integer.valueOf(val[0]);
-                }
-                if (clazz == Character.class) {
-                    args[i] = val[0];
-                }
-                if (clazz == long.class) {
-                    args[i] = Long.valueOf(val[0]);
-                }
-                if (clazz == double.class) {
-                    args[i] = Double.valueOf(val[0]);
-                }
-                if (clazz == boolean.class) {
-                    args[i] = Boolean.valueOf(val[0]);
-                }
-                if (clazz == byte.class) {
-                    args[i] = Byte.valueOf(val[0]);
-                }
-                if (clazz == float.class) {
-                    args[i] = Float.valueOf(val[0]);
-                }
-                if (clazz == short.class) {
-                    args[i] = Short.valueOf(val[0]);
-                }
+            if (Number.class.isAssignableFrom(clazz)) {
+                NumberConverter numberConverter = new NumberConverter();
+                args[i] = numberConverter.convert(val[0],clazz);
+            }
 
+            if (clazz == Boolean.class) {
 
             }
+            if (clazz == String.class) {
+
+            }
+
+
         }
 
 
     }
 
+    public static void main(String[] args) {
+        System.out.println(Integer.class.isAssignableFrom(Number.class));
+        System.out.println(Number.class.isAssignableFrom(Integer.class));
+    }
 
 }
