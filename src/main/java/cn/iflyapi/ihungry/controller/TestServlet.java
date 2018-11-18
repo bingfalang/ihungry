@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author: qfwang
@@ -35,5 +36,14 @@ public class TestServlet extends HttpServlet {
         out.println(JSON.toJSONString(JSONResult.success()));
     }
 
-
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        resp.setContentType("application/json");
+        resp.setCharacterEncoding("UTF-8");
+        Map map = req.getParameterMap();
+        String s = req.getReader().readLine();
+        PrintWriter out = resp.getWriter();
+        System.out.println(req.getMethod());
+        out.println(JSON.toJSONString(JSONResult.success()));
+    }
 }

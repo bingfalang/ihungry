@@ -8,6 +8,16 @@
     <display-name>Archetype Created Web Application</display-name>
 
     <filter>
+        <filter-name>XSSFilter</filter-name>
+        <filter-class>cn.iflyapi.ihungry.filter.XSSFilter</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>XSSFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <filter>
         <filter-name>charsetEncodingFilter</filter-name>
         <filter-class>cn.iflyapi.ihungry.filter.CharsetEncodingFilter</filter-class>
         <init-param>
@@ -18,16 +28,6 @@
 
     <filter-mapping>
         <filter-name>charsetEncodingFilter</filter-name>
-        <url-pattern>/*</url-pattern>
-    </filter-mapping>
-
-    <filter>
-        <filter-name>XSSFilter</filter-name>
-        <filter-class>cn.iflyapi.ihungry.filter.XSSFilter</filter-class>
-    </filter>
-
-    <filter-mapping>
-        <filter-name>XSSFilter</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
 
@@ -43,7 +43,7 @@
 
     <servlet>
         <servlet-name>Test</servlet-name>
-        <servlet-class>cn.iflyapi.ihungry.controller.DispatcherServlet</servlet-class>
+        <servlet-class>cn.iflyapi.ihungry.controller.TestServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
@@ -80,6 +80,27 @@
     <servlet-mapping>
         <servlet-name>Register</servlet-name>
         <url-pattern>/register</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>Stats</servlet-name>
+        <servlet-class>cn.iflyapi.ihungry.controller.StatsServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Stats</servlet-name>
+        <url-pattern>/stats/apply/record</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>PageStats</servlet-name>
+        <servlet-class>cn.iflyapi.ihungry.controller.PageStatsServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>PageStats</servlet-name>
+        <url-pattern>/stats</url-pattern>
     </servlet-mapping>
 
     <listener>

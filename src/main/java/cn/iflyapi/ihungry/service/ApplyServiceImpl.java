@@ -1,10 +1,10 @@
 package cn.iflyapi.ihungry.service;
 
+import cn.iflyapi.ihungry.model.ApplyRecord;
 import cn.iflyapi.ihungry.model.User;
 import cn.iflyapi.ihungry.util.DBUtils;
 import cn.iflyapi.ihungry.util.DateUtils;
 import cn.iflyapi.ihungry.util.JSONResult;
-import com.alibaba.fastjson.JSON;
 
 import javax.servlet.http.HttpServletRequest;
 import java.sql.Connection;
@@ -12,6 +12,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -36,7 +37,7 @@ public class ApplyServiceImpl implements ApplyService {
     }
 
     @Override
-    public List<User> getApplyUsers() {
+    public List<User> getTodayApplyUsers() {
         List<User> nameList = new ArrayList<>();
         try {
 
@@ -59,6 +60,36 @@ public class ApplyServiceImpl implements ApplyService {
             e.printStackTrace();
         }
         return nameList;
+    }
+
+    @Override
+    public List<ApplyRecord> getRecordApplyUsers() {
+        List<ApplyRecord> applyRecordList = new ArrayList<>();
+        try {
+
+            String sql = "select u.id, u.name, a.apply_at \n" +
+                    "from apply a\n" +
+                    "left join user u on a.user_id = u.id\n" +
+                    "where a.is_deleted = 0 order by a.apply_at desc";
+            Connection connection = DBUtils.connect();
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            ResultSet set = preparedStatement.executeQuery();
+            while (set.next()) {
+                ApplyRecord applyRecord = new ApplyRecord();
+                String name = set.getString("name");
+                applyRecord.setName(name);
+                Long id = set.getLong("id");
+                applyRecord.setUserId(id);
+                Date date = set.getDate("apply_at");
+                applyRecord.setApplyAt(date);
+                applyRecordList.add(applyRecord);
+            }
+            DBUtils.close(connection);
+            preparedStatement.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return applyRecordList;
     }
 
     @Override

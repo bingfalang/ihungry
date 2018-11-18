@@ -1,5 +1,6 @@
 package cn.iflyapi.ihungry.service;
 
+import cn.iflyapi.ihungry.model.ApplyRecord;
 import cn.iflyapi.ihungry.model.User;
 import cn.iflyapi.ihungry.util.JSONResult;
 import org.apache.http.HttpRequest;
@@ -15,7 +16,9 @@ public interface ApplyService {
 
     int countTodayApply();
 
-    List<User> getApplyUsers();
+    List<User> getTodayApplyUsers();
+
+    List<ApplyRecord> getRecordApplyUsers();
 
     JSONResult apply(HttpServletRequest request);
 }
