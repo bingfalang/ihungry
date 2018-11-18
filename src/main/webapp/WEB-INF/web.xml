@@ -34,55 +34,16 @@
 
 
     <servlet>
-        <servlet-name>Apply</servlet-name>
-        <servlet-class>cn.iflyapi.ihungry.controller.ApplyServlet</servlet-class>
-    </servlet>
-
-    <servlet-mapping>
-        <servlet-name>Apply</servlet-name>
-        <url-pattern>/apply</url-pattern>
-    </servlet-mapping>
-
-    <servlet>
         <servlet-name>Test</servlet-name>
         <servlet-class>cn.iflyapi.ihungry.controller.DispatcherServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
         <servlet-name>Test</servlet-name>
-        <url-pattern>/test</url-pattern>
-    </servlet-mapping>
-
-    <servlet>
-        <servlet-name>Join</servlet-name>
-        <servlet-class>cn.iflyapi.ihungry.controller.JoinServlet</servlet-class>
-    </servlet>
-
-    <servlet-mapping>
-        <servlet-name>Join</servlet-name>
-        <url-pattern>/joins</url-pattern>
+        <url-pattern>/*</url-pattern>
     </servlet-mapping>
 
 
-    <servlet>
-        <servlet-name>user</servlet-name>
-        <servlet-class>cn.iflyapi.ihungry.controller.UserServlet</servlet-class>
-    </servlet>
-
-    <servlet-mapping>
-        <servlet-name>user</servlet-name>
-        <url-pattern>/users</url-pattern>
-    </servlet-mapping>
-
-    <servlet>
-        <servlet-name>Register</servlet-name>
-        <servlet-class>cn.iflyapi.ihungry.controller.RegisterServlet</servlet-class>
-    </servlet>
-
-    <servlet-mapping>
-        <servlet-name>Register</servlet-name>
-        <url-pattern>/register</url-pattern>
-    </servlet-mapping>
 
     <listener>
         <listener-class>cn.iflyapi.ihungry.listener.NoticeDingListener</listener-class>

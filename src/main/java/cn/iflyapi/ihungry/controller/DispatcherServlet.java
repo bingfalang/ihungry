@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Parameter;
 import java.net.URL;
@@ -33,15 +34,17 @@ public class DispatcherServlet extends HttpServlet {
     @Override
     public void init() throws ServletException {
 
-/*        scanPackage("cn.iflyapi.ihungry");
+        scanPackage("cn.iflyapi.ihungry");
         System.out.println(clazzNames.toString());
 
         try {
             newInstance();
-        } catch (ClassNotFoundException | InstantiationException |IllegalAccessException e) {
+            di();
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException e) {
             e.printStackTrace();
         }
-        System.out.println(instantMap.size());*/
+
+        System.out.println(instantMap.size());
     }
 
     /**
@@ -170,9 +173,6 @@ public class DispatcherServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        System.out.println(req.getRequestURI());
-        System.out.println(req.getContextPath());
-        System.out.println(req.getMethod());
 
         Map<String, String[]> requestParamMap = req.getParameterMap();
 
@@ -187,6 +187,7 @@ public class DispatcherServlet extends HttpServlet {
 
         Parameter[] parameters = method.getParameters();
         Object[] args = new Object[parameters.length];
+        Object o = null;
         for (int i = 0; i < parameters.length; i++) {
             String name = parameters[i].getName();
             String[] val = requestParamMap.get(name);
@@ -195,26 +196,44 @@ public class DispatcherServlet extends HttpServlet {
             }
 
             Class clazz = parameters[i].getType();
-            String instanceNmae = methodInstanceMap.get(method);
-            Object o = instantMap.get(instanceNmae);
+            String instanceName = methodInstanceMap.get(method);
+            o = instantMap.get(instanceName);
 //                method.invoke(o,)
 
             if (Number.class.isAssignableFrom(clazz)) {
                 NumberConverter numberConverter = new NumberConverter();
-                args[i] = numberConverter.convert(val[0],clazz);
+                args[i] = numberConverter.convert(val[0], clazz);
             }
 
+
+            if (clazz.isPrimitive()) {
+
+                if (clazz == int.class) {
+                    args[i]= Integer.valueOf(val[0]);
+                }
+            }
             if (clazz == Boolean.class) {
 
             }
             if (clazz == String.class) {
-
+                args[i] = val[0];
             }
 
 
         }
+        try {
+            method.invoke(o, args);
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        }
 
+    }
 
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String params = req.getReader().readLine();
     }
 
     public static void main(String[] args) {
