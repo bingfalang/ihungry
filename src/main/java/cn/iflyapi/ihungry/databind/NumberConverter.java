@@ -1,30 +1,41 @@
 package cn.iflyapi.ihungry.databind;
 
+import java.beans.PropertyEditorSupport;
+import java.text.NumberFormat;
+
 /**
  * @author: qfwang
  * @date: 2018-11-17 2:41 PM
  */
-public class NumberConverter implements Converter<String,Number> {
+public class NumberConverter extends PropertyEditorSupport {
+
+    private Class clazz;
+    private NumberFormat numberFormat;
+    private boolean allowEmpty;
+
+    public NumberConverter(Class clazz, NumberFormat numberFormat, boolean allowEmpty) {
+        this.clazz = clazz;
+        this.numberFormat = numberFormat;
+        this.allowEmpty = allowEmpty;
+    }
+
     @Override
-    public Number convert(String source, Class clazz) {
-        if (clazz == int.class) {
-            return Integer.valueOf(source);
-        }
-        if (clazz == long.class) {
-            return Long.valueOf(source);
-        }
-        if (clazz == double.class) {
-            return Double.valueOf(source);
-        }
-        if (clazz == byte.class) {
-            return Byte.valueOf(source);
-        }
-        if (clazz == float.class) {
-            return Float.valueOf(source);
-        }
-        if (clazz == short.class) {
-            return Short.valueOf(source);
-        }
-        return null;
+    public void setValue(Object value) {
+        super.setValue(value);
+    }
+
+    @Override
+    public Object getValue() {
+        return super.getValue();
+    }
+
+    @Override
+    public String getAsText() {
+        return super.getAsText();
+    }
+
+    @Override
+    public void setAsText(String text) throws IllegalArgumentException {
+        super.setAsText(text);
     }
 }
