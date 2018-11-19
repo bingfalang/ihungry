@@ -39,7 +39,7 @@ public class NoticeBeginTask extends TimerTask {
         try {
             JSONObject jsonParam = new JSONObject();
             JSONObject content = new JSONObject();
-            content.put("content", "诸位,订餐时间到了，赶快进入下面地址报名吧！http://*:9110/ihungry");
+            content.put("content", "@所有人 ，订餐时间到了，赶快进入下面地址报名吧！http://*:9110/ihungry");
             jsonParam.put("msgtype", "text");
             jsonParam.put("text", content);
 

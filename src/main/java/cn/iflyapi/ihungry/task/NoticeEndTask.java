@@ -6,6 +6,7 @@ package cn.iflyapi.ihungry.task;
  */
 
 import cn.iflyapi.ihungry.HttpClient;
+import cn.iflyapi.ihungry.model.User;
 import cn.iflyapi.ihungry.service.ApplyService;
 import cn.iflyapi.ihungry.service.ApplyServiceImpl;
 import cn.iflyapi.ihungry.util.Constant;
@@ -14,6 +15,7 @@ import org.apache.http.entity.ContentType;
 
 import java.io.IOException;
 import java.util.Date;
+import java.util.List;
 import java.util.TimerTask;
 import java.util.logging.Logger;
 
@@ -41,7 +43,12 @@ public class NoticeEndTask extends TimerTask {
             ApplyService applyService = new ApplyServiceImpl();
             JSONObject jsonParam = new JSONObject();
             JSONObject content = new JSONObject();
-            content.put("content", "诸位,订餐报名结束，共" + applyService.countTodayApply() + "人。");
+            List<User> userList = applyService.getTodayApplyUsers();
+            StringBuilder names = new StringBuilder();
+            for (User user : userList) {
+                names.append(user.getName() + ",");
+            }
+            content.put("content", "@所有人 ，订餐报名结束，其中有：" + names.toString().substring(0, names.length() - 1) + "，共" + userList.size() + "人。");
             jsonParam.put("msgtype", "text");
             jsonParam.put("text", content);
 
