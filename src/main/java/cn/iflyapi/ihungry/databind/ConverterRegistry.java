@@ -1,12 +1,14 @@
 package cn.iflyapi.ihungry.databind;
 
+import java.beans.PropertyEditor;
+
 /**
  * @author: qfwang
  * @date: 2018-11-19 2:19 PM
  */
 public interface ConverterRegistry {
 
-    void registerConverter(Class<?> clazz, Converter converter);
+    void registerConverter(Class<?> clazz, PropertyEditor propertyEditor);
 
-    Converter findCustomConverter(Class<?> clazz);
+    PropertyEditor findCustomConverter(Class<?> clazz);
 }

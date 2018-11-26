@@ -13,6 +13,11 @@ public class NumberConverter extends PropertyEditorSupport {
     private NumberFormat numberFormat;
     private boolean allowEmpty;
 
+    public NumberConverter(Class clazz, boolean allowEmpty) {
+        this.clazz = clazz;
+        this.allowEmpty = allowEmpty;
+    }
+
     public NumberConverter(Class clazz, NumberFormat numberFormat, boolean allowEmpty) {
         this.clazz = clazz;
         this.numberFormat = numberFormat;
