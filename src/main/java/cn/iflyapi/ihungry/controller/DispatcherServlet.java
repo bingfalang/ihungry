@@ -1,12 +1,14 @@
 package cn.iflyapi.ihungry.controller;
 
 import cn.iflyapi.ihungry.annotation.*;
-import cn.iflyapi.ihungry.databind.NumberConverter;
+import cn.iflyapi.ihungry.databind.PropertyEditorRegistry;
+import cn.iflyapi.ihungry.databind.PropertyEditorRegistrySupport;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.beans.PropertyEditor;
 import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Field;
@@ -23,13 +25,15 @@ import java.util.*;
 public class DispatcherServlet extends HttpServlet {
 
 
-    private Map<String, Object> instantMap = new HashMap<>();
+    private Map<String, Object> beanFactory = new HashMap<>();
 
     private List<String> clazzNames = new ArrayList<>();
 
     private Map<String, Method> handlerMapping = new HashMap<>();
 
     private Map<Method, String> methodInstanceMap = new HashMap<>();
+
+    private PropertyEditorRegistry propertyEditorRegistry = new PropertyEditorRegistrySupport();
 
     @Override
     public void init() throws ServletException {
@@ -44,7 +48,7 @@ public class DispatcherServlet extends HttpServlet {
             e.printStackTrace();
         }
 
-        System.out.println(instantMap.size());
+        System.out.println(beanFactory.size());
     }
 
     /**
@@ -105,11 +109,11 @@ public class DispatcherServlet extends HttpServlet {
 
             if (isService) {
                 Service service = (Service) clazz.getAnnotation(Service.class);
-                instantMap.put(service.value(), ob);
+                beanFactory.put(service.value(), ob);
             }
             if (isController) {
                 Controller controller = (Controller) clazz.getAnnotation(Controller.class);
-                instantMap.put(controller.value(), ob);
+                beanFactory.put(controller.value(), ob);
                 handlerMapping(ob, controller);
             }
         }
@@ -122,15 +126,15 @@ public class DispatcherServlet extends HttpServlet {
      */
     private void di() throws IllegalAccessException {
 
-        for (String key : instantMap.keySet()) {
-            Field[] fields = instantMap.get(key).getClass().getDeclaredFields();
+        for (String key : beanFactory.keySet()) {
+            Field[] fields = beanFactory.get(key).getClass().getDeclaredFields();
             for (Field field : fields) {
                 if (field.isAnnotationPresent(Qualifier.class)) {
                     Qualifier qualifier = field.getAnnotation(Qualifier.class);
                     String instanceName = qualifier.value();
-                    Object target = instantMap.get(instanceName);
+                    Object target = beanFactory.get(instanceName);
                     field.setAccessible(true);
-                    field.set(instantMap.get(key), target);
+                    field.set(beanFactory.get(key), target);
                 }
             }
         }
@@ -184,7 +188,6 @@ public class DispatcherServlet extends HttpServlet {
             return;
         }
 
-
         Parameter[] parameters = method.getParameters();
         Object[] args = new Object[parameters.length];
         Object o = null;
@@ -197,29 +200,9 @@ public class DispatcherServlet extends HttpServlet {
 
             Class clazz = parameters[i].getType();
             String instanceName = methodInstanceMap.get(method);
-            o = instantMap.get(instanceName);
-//                method.invoke(o,)
-
-            if (Number.class.isAssignableFrom(clazz)) {
-                NumberConverter numberConverter = new NumberConverter();
-                args[i] = numberConverter.convert(val[0], clazz);
-            }
-
-
-            if (clazz.isPrimitive()) {
-
-                if (clazz == int.class) {
-                    args[i]= Integer.valueOf(val[0]);
-                }
-            }
-            if (clazz == Boolean.class) {
-
-            }
-            if (clazz == String.class) {
-                args[i] = val[0];
-            }
-
-
+            o = beanFactory.get(instanceName);
+            PropertyEditor propertyEditor = propertyEditorRegistry.findCustomConverter(clazz);
+            args[i] = propertyEditor.getValue();
         }
         try {
             method.invoke(o, args);
