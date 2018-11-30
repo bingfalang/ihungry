@@ -1,5 +1,7 @@
 package cn.iflyapi.ihungry.databind;
 
+import com.sun.beans.editors.BooleanEditor;
+
 import java.beans.PropertyEditor;
 import java.util.HashMap;
 import java.util.Map;
@@ -12,6 +14,10 @@ public class PropertyEditorRegistrySupport implements PropertyEditorRegistry {
 
     private Map<Class<?>, PropertyEditor> defaultConverters = new HashMap<>();
 
+    public PropertyEditorRegistrySupport() {
+        createDefaultConverters();
+    }
+
     @Override
     public void registerConverter(Class<?> clazz, PropertyEditor propertyEditor) {
         defaultConverters.put(clazz, propertyEditor);
@@ -22,7 +28,7 @@ public class PropertyEditorRegistrySupport implements PropertyEditorRegistry {
         return defaultConverters.get(clazz);
     }
 
-    public void createDefaultConverters() {
+    private void createDefaultConverters() {
         registerConverter(Byte.class, new NumberEditor(Byte.class, true));
         registerConverter(byte.class, new NumberEditor(Byte.class, false));
         registerConverter(Short.class, new NumberEditor(Short.class, true));
@@ -31,6 +37,9 @@ public class PropertyEditorRegistrySupport implements PropertyEditorRegistry {
         registerConverter(int.class, new NumberEditor(Integer.class, false));
         registerConverter(Double.class, new NumberEditor(Double.class, true));
         registerConverter(double.class, new NumberEditor(Double.class, false));
+
+        registerConverter(Boolean.class,new BooleanEditor());
+        registerConverter(boolean.class,new BooleanEditor());
 
     }
 }

@@ -31,7 +31,7 @@ public class DispatcherServlet extends HttpServlet {
 
     private Map<String, Method> handlerMapping = new HashMap<>();
 
-    private Map<Method, String> methodInstanceMap = new HashMap<>();
+    private Map<Method, String> methodHandler = new HashMap<>();
 
     private PropertyEditorRegistry propertyEditorRegistry = new PropertyEditorRegistrySupport();
 
@@ -154,13 +154,13 @@ public class DispatcherServlet extends HttpServlet {
             if (isGet) {
                 GetMapping getMapping = method.getAnnotation(GetMapping.class);
                 handlerMapping.put(getMapping.method() + formatUrl(getMapping.value()), method);
-                methodInstanceMap.put(method, controller.value());
+                methodHandler.put(method, controller.value());
             }
 
             if (isPost) {
                 PostMapping postMapping = method.getAnnotation(PostMapping.class);
                 handlerMapping.put(postMapping.method() + formatUrl(postMapping.value()), method);
-                methodInstanceMap.put(method, controller.value());
+                methodHandler.put(method, controller.value());
             }
         }
     }
@@ -194,14 +194,39 @@ public class DispatcherServlet extends HttpServlet {
         for (int i = 0; i < parameters.length; i++) {
             String name = parameters[i].getName();
             String[] val = requestParamMap.get(name);
+
+            //引用类型可能为空，不能跳过
             if (Objects.isNull(val)) {
                 continue;
             }
 
             Class clazz = parameters[i].getType();
-            String instanceName = methodInstanceMap.get(method);
+            String instanceName = methodHandler.get(method);
             o = beanFactory.get(instanceName);
             PropertyEditor propertyEditor = propertyEditorRegistry.findCustomConverter(clazz);
+
+            //引用类型参数
+            if (Objects.isNull(propertyEditor)) {
+                try {
+                    Field[] fields = clazz.getDeclaredFields();
+                    Object refObj = clazz.newInstance();
+                    for (Field field : fields) {
+                        String[] valRef = requestParamMap.get(field.getName());
+                        if (Objects.isNull(valRef)) {
+                            continue;
+                        }
+                        PropertyEditor propertyEditorRef = propertyEditorRegistry.findCustomConverter(field.getType());
+                        propertyEditorRef.setAsText(valRef[0]);
+                        field.setAccessible(true);
+                        field.set(refObj, propertyEditorRef.getValue());
+                    }
+                } catch (InstantiationException e) {
+                    e.printStackTrace();
+                } catch (IllegalAccessException e) {
+                    e.printStackTrace();
+                }
+            }
+            propertyEditor.setAsText(val[0]);
             args[i] = propertyEditor.getValue();
         }
         try {
@@ -222,6 +247,8 @@ public class DispatcherServlet extends HttpServlet {
     public static void main(String[] args) {
         System.out.println(Integer.class.isAssignableFrom(Number.class));
         System.out.println(Number.class.isAssignableFrom(Integer.class));
+        String[] strings = new String[5];
+        System.out.println(strings.getClass() == String[].class);
     }
 
 }
