@@ -178,8 +178,6 @@ public class DispatcherServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        Map<String, String[]> requestParamMap = req.getParameterMap();
-
         String uri = req.getRequestURI().replaceAll(req.getContextPath(), "");
         String url = req.getMethod() + uri;
 
@@ -192,42 +190,43 @@ public class DispatcherServlet extends HttpServlet {
         Object[] args = new Object[parameters.length];
         Object o = null;
         for (int i = 0; i < parameters.length; i++) {
-            String name = parameters[i].getName();
-            String[] val = requestParamMap.get(name);
-
-            //引用类型可能为空，不能跳过
-            if (Objects.isNull(val)) {
-                continue;
-            }
-
+            String paramName = parameters[i].getName();
+            String[] val = req.getParameterValues(paramName);
             Class clazz = parameters[i].getType();
-            String instanceName = methodHandler.get(method);
-            o = beanFactory.get(instanceName);
+            String beanName = methodHandler.get(method);
+            o = beanFactory.get(beanName);
             PropertyEditor propertyEditor = propertyEditorRegistry.findCustomConverter(clazz);
 
             //引用类型参数
-            if (Objects.isNull(propertyEditor)) {
+            if (Objects.nonNull(propertyEditor)) {
+                propertyEditor.setAsText(val[0]);
+                args[i] = propertyEditor.getValue();
+
+            }else {
                 try {
                     Field[] fields = clazz.getDeclaredFields();
                     Object refObj = clazz.newInstance();
                     for (Field field : fields) {
-                        String[] valRef = requestParamMap.get(field.getName());
+                        String[] valRef = req.getParameterValues(field.getName());
                         if (Objects.isNull(valRef)) {
                             continue;
                         }
                         PropertyEditor propertyEditorRef = propertyEditorRegistry.findCustomConverter(field.getType());
+                        if (Objects.isNull(propertyEditorRef)) {
+                            continue;
+                        }
                         propertyEditorRef.setAsText(valRef[0]);
                         field.setAccessible(true);
                         field.set(refObj, propertyEditorRef.getValue());
                     }
+                    args[i] = refObj;
                 } catch (InstantiationException e) {
                     e.printStackTrace();
                 } catch (IllegalAccessException e) {
                     e.printStackTrace();
                 }
             }
-            propertyEditor.setAsText(val[0]);
-            args[i] = propertyEditor.getValue();
+
         }
         try {
             method.invoke(o, args);

@@ -1,6 +1,7 @@
 package cn.iflyapi.ihungry.databind;
 
 import com.sun.beans.editors.BooleanEditor;
+import com.sun.beans.editors.StringEditor;
 
 import java.beans.PropertyEditor;
 import java.util.HashMap;
@@ -40,6 +41,8 @@ public class PropertyEditorRegistrySupport implements PropertyEditorRegistry {
 
         registerConverter(Boolean.class,new BooleanEditor());
         registerConverter(boolean.class,new BooleanEditor());
+
+        registerConverter(String.class,new StringEditor());
 
     }
 }

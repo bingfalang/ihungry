@@ -12,17 +12,10 @@ import java.text.NumberFormat;
 public class NumberEditor extends PropertyEditorSupport {
 
     private Class clazz;
-    private NumberFormat numberFormat;
     private boolean allowEmpty;
 
     public NumberEditor(Class clazz, boolean allowEmpty) {
         this.clazz = clazz;
-        this.allowEmpty = allowEmpty;
-    }
-
-    public NumberEditor(Class clazz, NumberFormat numberFormat, boolean allowEmpty) {
-        this.clazz = clazz;
-        this.numberFormat = numberFormat;
         this.allowEmpty = allowEmpty;
     }
 
