@@ -8,6 +8,10 @@
     <display-name>Archetype Created Web Application</display-name>
 
 
+    <context-param>
+        <param-name>scanPacket</param-name>
+        <param-value>cn.iflyapi.ihungry</param-value>
+    </context-param>
     <filter>
         <filter-name>XSSFilter</filter-name>
         <filter-class>cn.iflyapi.ihungry.filter.XSSFilter</filter-class>

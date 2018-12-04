@@ -3,12 +3,15 @@ package cn.iflyapi.ihungry.controller;
 import cn.iflyapi.ihungry.annotation.*;
 import cn.iflyapi.ihungry.databind.PropertyEditorRegistry;
 import cn.iflyapi.ihungry.databind.PropertyEditorRegistrySupport;
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.beans.PropertyEditor;
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Field;
@@ -38,6 +41,7 @@ public class DispatcherServlet extends HttpServlet {
     @Override
     public void init() throws ServletException {
 
+        String scanpacket = getServletContext().getInitParameter("scanPacket");
         scanPackage("cn.iflyapi.ihungry");
         System.out.println(clazzNames.toString());
 
@@ -177,7 +181,6 @@ public class DispatcherServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
         String uri = req.getRequestURI().replaceAll(req.getContextPath(), "");
         String url = req.getMethod() + uri;
 
@@ -202,29 +205,8 @@ public class DispatcherServlet extends HttpServlet {
                 propertyEditor.setAsText(val[0]);
                 args[i] = propertyEditor.getValue();
 
-            }else {
-                try {
-                    Field[] fields = clazz.getDeclaredFields();
-                    Object refObj = clazz.newInstance();
-                    for (Field field : fields) {
-                        String[] valRef = req.getParameterValues(field.getName());
-                        if (Objects.isNull(valRef)) {
-                            continue;
-                        }
-                        PropertyEditor propertyEditorRef = propertyEditorRegistry.findCustomConverter(field.getType());
-                        if (Objects.isNull(propertyEditorRef)) {
-                            continue;
-                        }
-                        propertyEditorRef.setAsText(valRef[0]);
-                        field.setAccessible(true);
-                        field.set(refObj, propertyEditorRef.getValue());
-                    }
-                    args[i] = refObj;
-                } catch (InstantiationException e) {
-                    e.printStackTrace();
-                } catch (IllegalAccessException e) {
-                    e.printStackTrace();
-                }
+            } else {
+                args[i] = getArgument(req, clazz);
             }
 
         }
@@ -238,16 +220,124 @@ public class DispatcherServlet extends HttpServlet {
 
     }
 
-    @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String params = req.getReader().readLine();
+    private Object getArgument(HttpServletRequest req, Class clazz) {
+        try {
+            Field[] fields = clazz.getDeclaredFields();
+            Object refObj = clazz.newInstance();
+            for (Field field : fields) {
+                String[] valRef = req.getParameterValues(field.getName());
+                if (Objects.isNull(valRef)) {
+                    continue;
+                }
+                PropertyEditor propertyEditorRef = propertyEditorRegistry.findCustomConverter(field.getType());
+                if (Objects.isNull(propertyEditorRef)) {
+                    continue;
+                }
+                propertyEditorRef.setAsText(valRef[0]);
+                field.setAccessible(true);
+                field.set(refObj, propertyEditorRef.getValue());
+            }
+            return refObj;
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
-    public static void main(String[] args) {
-        System.out.println(Integer.class.isAssignableFrom(Number.class));
-        System.out.println(Number.class.isAssignableFrom(Integer.class));
-        String[] strings = new String[5];
-        System.out.println(strings.getClass() == String[].class);
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String uri = req.getRequestURI().replaceAll(req.getContextPath(), "");
+        String url = req.getMethod() + uri;
+
+        Method method = handlerMapping.get(url);
+
+        JSONObject jsonObject = formatJSON(req.getReader());
+        System.out.println(jsonObject.getString("age"));
+        System.out.println(jsonObject.get("list").toString());
+
+
+        Parameter[] parameters = method.getParameters();
+        Object[] args = new Object[parameters.length];
+        Object o = null;
+        for (int i = 0; i < parameters.length; i++) {
+            boolean isRequestBody = parameters[i].isAnnotationPresent(RequestBody.class);
+            Class paramType = parameters[i].getType();
+            String paramName = parameters[i].getName();
+            Object paramObj = null;
+            try {
+                paramObj = paramType.newInstance();
+            } catch (InstantiationException e) {
+                e.printStackTrace();
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            }
+
+            PropertyEditor propertyEditor = propertyEditorRegistry.findCustomConverter(paramType);
+            if (!isRequestBody) {
+                if (Objects.nonNull(propertyEditor)) {//简单类型
+                    String parameterVal = req.getParameter(paramName);
+                    if (null != parameterVal) {
+                        propertyEditor.setAsText(parameterVal);
+                        args[i] = propertyEditor.getValue();
+                        continue;
+                    }
+                }
+                args[i] = paramObj;
+                continue;
+            }
+
+            if (Objects.nonNull(propertyEditor)) {
+                args[i] = paramObj;
+                continue;
+            }
+            Field[] fields = paramType.getDeclaredFields();
+            for (Field field : fields) {
+                String fieldName = field.getName();
+                Class<?> fieldType = field.getType();
+                PropertyEditor customConverter = propertyEditorRegistry.findCustomConverter(fieldType);
+                boolean isCantainsParamName = jsonObject.containsKey(fieldName);
+
+                if (!isCantainsParamName || null == customConverter) {
+                    continue;
+                }
+                String val = jsonObject.getString(paramName);
+                customConverter.setAsText(val);
+                try {
+                    field.setAccessible(true);
+                    field.set(paramObj, customConverter.getValue());
+                } catch (IllegalAccessException e) {
+                    e.printStackTrace();
+                }
+
+            }
+            args[i] = paramObj;
+
+        }
+
+        String beanName = methodHandler.get(method);
+        o = beanFactory.get(beanName);
+
+        try {
+            method.invoke(o,args);
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        }
+
     }
+
+    private JSONObject formatJSON(BufferedReader reader) throws IOException {
+        String s;
+        StringBuilder sb = new StringBuilder();
+        while ((s = reader.readLine()) != null) {
+            sb.append(s + "\n");
+        }
+        reader.close();
+        return JSON.parseObject(sb.toString());
+    }
+
 
 }
