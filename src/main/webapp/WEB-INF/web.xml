@@ -103,6 +103,36 @@
         <url-pattern>/stats</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>Food</servlet-name>
+        <servlet-class>cn.iflyapi.ihungry.controller.FoodServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Food</servlet-name>
+        <url-pattern>/foods</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>PageFood</servlet-name>
+        <servlet-class>cn.iflyapi.ihungry.controller.PageFoodServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>PageFood</servlet-name>
+        <url-pattern>/page/food</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Favorite</servlet-name>
+        <servlet-class>cn.iflyapi.ihungry.controller.FavoriteServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Favorite</servlet-name>
+        <url-pattern>/favorites</url-pattern>
+    </servlet-mapping>
+
     <listener>
         <listener-class>cn.iflyapi.ihungry.listener.NoticeDingListener</listener-class>
     </listener>
