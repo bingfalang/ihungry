@@ -40,7 +40,7 @@
                     </div>
 
                 </div>
-                <button class="btn btn-primary btn-lg btn-block" id="applyBtn" type="submit">报名啦</button>
+                <button class="btn btn-primary btn-lg btn-block" id="applyBtn">报名啦</button>
             </form>
 
             <br><br>
@@ -63,7 +63,7 @@
                     </div>
 
                 </div>
-                <button class="btn btn-primary btn-lg btn-block" id="addfavoriteBtn" type="submit">就是它</button>
+                <button class="btn btn-primary btn-lg btn-block" id="addfavoriteBtn">就是它</button>
             </form>
         </div>
         <hr class="mb-4">
@@ -114,102 +114,105 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.2/js/bootstrap-select.min.js"></script>
 <script>
 
+    $(function (){
 
-    $.getJSON('/ihungry/users', function (data) {
-        var result = data.data;
+        $.getJSON('/ihungry/users', function (data) {
+            var result = data.data;
 
-        var html = '';
-        $.each(result, function (index, val) {
-            var id = val.id;
-            var name = val.name;
-            html += '<option value="' + id + '">' + name + '</option>';
+            var html = '';
+            $.each(result, function (index, val) {
+                var id = val.id;
+                var name = val.name;
+                html += '<option value="' + id + '">' + name + '</option>';
+            });
+
+            $("#userId").append(html);
         });
 
-        $("#userId").append(html);
-    });
+        $.getJSON('/ihungry/apply', function (data) {
+            var result = data.data;
 
-    $.getJSON('/ihungry/apply', function (data) {
-        var result = data.data;
+            var html = '';
+            $.each(result, function (index, val) {
+                var name = val.name;
+                html += '<li class="list-group-item d-flex justify-content-between lh-condensed">\n' +
+                    '                    <div>\n' +
+                    '                        <h6 class="my-0">' + name + '</h6>\n' +
+                    '                    </div>\n' +
+                    '                </li>';
+            });
 
-        var html = '';
-        $.each(result, function (index, val) {
-            var name = val.name;
-            html += '<li class="list-group-item d-flex justify-content-between lh-condensed">\n' +
-                '                    <div>\n' +
-                '                        <h6 class="my-0">' + name + '</h6>\n' +
-                '                    </div>\n' +
-                '                </li>';
+            $("#applyList").append(html);
+            $("#total").text(result.length);
         });
 
-        $("#applyList").append(html);
-        $("#total").text(result.length);
-    });
+        $.getJSON('/ihungry/favorites', function (data) {
+            var result = data.data;
 
-    $.getJSON('/ihungry/favorites', function (data) {
-        var result = data.data;
+            var html = '';
+            $.each(result, function (index, val) {
+                var name = val.name;
+                var category = val.category;
+                var total = val.total;
+                html += '<li class="list-group-item d-flex justify-content-between align-items-center">\n' +name+
+                    '       <span class="badge badge-light category-span">' + category + '</span>\n' +
+                    '       <span class="badge badge-primary badge-pill">' + total + '</span>\n' +
+                    '    </li>';
+            });
 
-        var html = '';
-        $.each(result, function (index, val) {
-            var name = val.name;
-            var category = val.category;
-            var total = val.total;
-            html += '<li class="list-group-item d-flex justify-content-between align-items-center">\n' +name+
-                '       <span class="badge badge-light category-span">' + category + '</span>\n' +
-                '       <span class="badge badge-primary badge-pill">' + total + '</span>\n' +
-                '    </li>';
+            $("#favoriteList").append(html);
         });
 
-        $("#favoriteList").append(html);
-    });
+        $.getJSON('/ihungry/foods', function (data) {
+            var result = data.data;
+            $.each(result, function (index, val) {
+                var id = val.id;
+                var name = val.name;
+                var category = val.category;
+                if ($("#" + category).length <= 0) {
+                    $("#food-category").append('<optgroup label="' + category + '" id="' + category + '"></optgroup>');
+                }
+                $("#" + category).append('<option value="' + id + '">' + name + '</option>');
+            });
 
-    $.getJSON('/ihungry/foods', function (data) {
-        var result = data.data;
-        $.each(result, function (index, val) {
-            var id = val.id;
-            var name = val.name;
-            var category = val.category;
-            if ($("#" + category).length <= 0) {
-                $("#food-category").append('<optgroup label="' + category + '" id="' + category + '"></optgroup>');
+        });
+
+        $('#applyBtn').click(function () {
+            var id = $("#userId option:selected").val();
+            if (id == 0) {
+                alert("请选择报名者");
+                return;
             }
-            $("#" + category).append('<option value="' + id + '">' + name + '</option>');
+            $.ajax({
+                url: "/ihungry/joins",
+                async: false,//这一步是非常重要的，作用是设置为同步执行
+                type: "GET",
+                data: {"userId": id},
+                dataType: "json",
+                success: function (data) {
+                    alert(data.msg);
+                }
+            });
+
+        });
+
+        $('#addfavoriteBtn').click(function () {
+            var id = $('#food-category').selectpicker('val')
+
+            $.ajax({
+                url: "/ihungry/favorites",
+                async: false,//这一步是非常重要的，作用是设置为同步执行
+                type: "POST",
+                data: {"foodIds": id.toString()},
+                dataType: "json",
+                success: function (data) {
+                    alert(data.msg);
+                }
+            });
         });
 
     });
 
-    $('#applyBtn').click(function () {
-        var id = $("#userId option:selected").val();
-        if (id == 0) {
-            alert("请选择报名者");
-            return;
-        }
-        $.ajax({
-            url: "/ihungry/joins",
-            async: false,//这一步是非常重要的，作用是设置为同步执行
-            type: "GET",
-            data: {"userId": id},
-            dataType: "json",
-            success: function (data) {
-                alert(data.msg);
-            }
-        });
-
-    });
-
-
-    $('#addfavoriteBtn').click(function () {
-        var id = $('#food-category').selectpicker('val')
-
-        $.ajax({
-            url: "/ihungry/favorites",
-            async: false,//这一步是非常重要的，作用是设置为同步执行
-            type: "POST",
-            data: {"foodIds": id.toString()},
-            dataType: "json",
-            success: function (data) {
-                alert(data.msg);
-            }
-        });
-    });
 
 </script>
 </body>

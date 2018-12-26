@@ -56,6 +56,10 @@
     $('#applyBtn').click(function () {
         var name = $("#name").val();
         var category = $("#category").val();
+        if (name == '' || category == '') {
+            alert("内容不能为空");
+            return;
+        }
         $.ajax({
             url: "/ihungry/foods",
             async: false,//这一步是非常重要的，作用是设置为同步执行
